@@ -9,6 +9,8 @@
       <span class="badge badge-default">
         <%= number_to_currency @course.cost %>
       </span>
+        
+      <%= image_tag course.image.url, class: 'img-fluid' %>
 
       <% if current_user && current_user == @course.user %>
         <br />

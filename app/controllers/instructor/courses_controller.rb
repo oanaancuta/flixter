@@ -15,6 +15,11 @@ class Instructor::CoursesController < ApplicationController
     end
   end
 
+  
+  def show 
+  @course = Course.find(params[:id])
+  end
+
   private
 
   def require_authorized_for_current_course
@@ -29,6 +34,6 @@ class Instructor::CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:title, :description, :cost)
+    params.require(:course).permit(:title, :image, :description, :cost)
   end
 end
