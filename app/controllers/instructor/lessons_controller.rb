@@ -9,7 +9,7 @@ class Instructor::LessonsController < ApplicationController
 
   def create
     @section = Section.find(params[:section_id])
-    @lesson = @section.lessons.create(lesson_params)
+    @lesson = @current_section.lessons.create(lesson_params)
     redirect_to instructor_course_path(current_section.course)
   end
 
@@ -27,6 +27,6 @@ class Instructor::LessonsController < ApplicationController
   end
 
   def lesson_params
-    params.require(:lesson).permit(:title, :subtitle)
+    params.require(:lesson).permit(:title, :subtitle, :video)
   end
 end
